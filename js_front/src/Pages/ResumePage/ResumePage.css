@@ -1,0 +1,12 @@
+*{
+  background-color: gray;
+}
+
+.ResumePage-container {
+  text-align: center;
+  color: 'green';
+}
+
+.ResumePage-textbox{
+  color:'green';
+}
