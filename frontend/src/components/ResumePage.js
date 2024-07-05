@@ -1,24 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import ResumeItem from './ResumeItem'
-import './ResumePage.css';
 import axios from 'axios';
 import { Container, TextField, Grid, Paper, Typography, Button } from '@mui/material';
-import { blue } from '@mui/material/colors';
+import useStyles from './styles'
+import Analytics from './RAnalytics'
 
 const ResumePage = () =>{
-    const [resume, setResume] = useState([]);
-    const [filter, setFilter] = useState({
-      name: '',
-      salary: '',
-      specialty: '',
-      part_time: '',
-      workday: '',
-    });
+  const classes = useStyles();
+  const [resume, setResume] = useState([]);
+  const [filter, setFilter] = useState({
+    name: '',
+    salary: '',
+    specialty: '',
+    part_time: '',
+    workday: '',
+  });
+  
   useEffect(() => {
     axios.get('http://localhost:8000/resume/', {params: filter})
     .then(response => setResume(response.data))
     .catch(error => console.error('Error fetching data:', error));
   }, [filter],)
+  
   const handleFilterChange = (e) => {
     setFilter({
       ...filter,
@@ -26,9 +29,10 @@ const ResumePage = () =>{
     });
   };
   return(
-    <Container>
-      <Typography variant="h4" color='green'>Resumes</Typography>
-      <Grid container spacing={1}>
+    <Container className={classes.Container}>
+      <Analytics />
+      <Typography variant="h4" className={classes.heading} >Resumes</Typography>
+      <Grid container spacing={2} className={classes.filterContainer}>
         <Grid item xs={12} sm={6} md={4}>
           <TextField fullWidth label="Name" name="name" onChange={handleFilterChange} required={true} />
         </Grid>
@@ -45,19 +49,19 @@ const ResumePage = () =>{
           <TextField fullWidth label="Workday Type" name="workday" onChange={handleFilterChange} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Button fullWidth variant="contained" disableRipple sx={{ bgcolor:blue[800]}}>
-            Button to start search
+          <Button fullWidth variant='contained' name="Click Me" label="Click Me" className={classes.tryButton}>
+            Search for More
           </Button>
         </Grid>
       </Grid>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className={classes.listContainer}>
         {resume.map(resume => (
-          <Grid>
-            <Paper>
+          <Grid item xs={12} sm={6} md={4} kay={resume.link}>
+            <Paper className={classes.paper}>
               <ResumeItem resume={resume} />
             </Paper>
-          </Grid>)
-        )}
+          </Grid>
+        ))}
       </Grid>
     </Container>
   )

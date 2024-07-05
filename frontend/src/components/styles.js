@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
   },
   heading: {
+    marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
@@ -28,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.primary,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#600C5C',
   },
   card: {
     minHeight: '200px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#780f74',
     color: theme.palette.text.secondary,
   },
 

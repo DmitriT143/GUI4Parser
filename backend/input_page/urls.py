@@ -8,6 +8,5 @@ router.register(r'Vacancy',views.VacancyViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-#    path("input_page/", views.input_page, name="input_page"),
-#    path("output_page/", views.output_page, name="output_page"),
+#    path('refresh/resume', include())
 ]
