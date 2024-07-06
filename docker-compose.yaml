@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: hh_ru_parser_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: LRX58!
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:LRX58!@db:5432/hh_ru_parser_db
+      - POSTGRES_DB=hh_ru_parser_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=LRX58!
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

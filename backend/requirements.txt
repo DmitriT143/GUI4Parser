@@ -1,0 +1,10 @@
+django
+djangorestframework
+psycopg2-binary
+django-filter
+django-cors-headers
+python-decouple
+beautifulsoup4
+fake_useragent
+requests
+lxml

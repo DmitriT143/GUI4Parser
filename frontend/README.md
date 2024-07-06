@@ -11,10 +11,10 @@ npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/styles --forced
 ~~~
 ### If you want to work without docker
-1) Run backend with instructions set there
+1) Run backend with instructions stated in that directory
 2) Run frontend via command below from this folder
 ### Если вы хотите работать без докера
-1) Запустите backend по инструкциям приложенным там
+1) Запустите backend по инструкциям приложенным в той папке
 2) Запустите frontend командой снизу из папки
 ~~~ shell
 npm start

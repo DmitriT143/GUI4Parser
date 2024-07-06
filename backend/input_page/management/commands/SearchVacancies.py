@@ -32,16 +32,16 @@ def get_resume(job):
         if workday==None: workday= 'N/A'
         if requirements==None: requirements = 'N/A'
         if responsibilities==None: responsibilities = 'N/A'
-        Vacancy.objects.update_or_create(
-            link=link,
-            name=name,
-            region=region,
-            salary_min=salary_min,
-            salary_max=salary_max,
-            workday=workday,
-            requirements=requirements,
-            responsibilities=responsibilities,
-        )
+        #Vacancy.objects.update_or_create(
+        #    link=link,
+        #    name=name,
+        #    region=region,
+        #    salary_min=salary_min,
+        #    salary_max=salary_max,
+        #    workday=workday,
+        #    requirements=requirements,
+        #    responsibilities=responsibilities,
+        #)
 
 
 class Command(BaseCommand):

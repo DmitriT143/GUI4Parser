@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'hh_ru_parser_db',
         'USER': 'postgres',
         'PASSWORD': 'LRX58!',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }

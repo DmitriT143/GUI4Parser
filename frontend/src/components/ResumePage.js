@@ -49,7 +49,7 @@ const ResumePage = () =>{
           <TextField fullWidth label="Workday Type" name="workday" onChange={handleFilterChange} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Button fullWidth variant='contained' name="Click Me" label="Click Me" className={classes.tryButton}>
+          <Button fullWidth variant='contained' name="Click Me" label="Click Me" className={classes.tryButton} onClick={() => {alert("Wait for more resumes, don't click again"); axios.get('http://localhost:8000/refresh/resume',{params:filter})}}>
             Search for More
           </Button>
         </Grid>
